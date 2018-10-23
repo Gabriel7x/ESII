@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Seguindo</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+	<style>
+		table, td {
+			border: 1px solid black;
+		}
+	</style>
+
+	<button onclick="window.location.href='/home/{{user}}';">Home</button>
+	<button onclick="window.location.href='/posts/{{user}}';">Posts</button>
+	<form id = "form" method="post" action="{{ url_for('seguir') }}" >
+		<input name="idUsuarioSeguir" type="text"/><button type="submit">Seguir</button>
+	</form>
+	<form id = "form" method="post" action="{{ url_for('pararDeSeguir') }}" >
+		<input name="idUsuarioParar" type="text"/><button type="submit">Parar de Seguir</button>
+	</form>
+
+	<p><strong>Aviso: </strong> Você não segue nenhum usuário </p>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Minhas Postagens</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	
+	<style>
+		table, td {
+			border: 1px solid black;
+		}
+	</style>
+
+	<button onclick="window.location.href='/home/{{user}}';">Home</button> 
+	<button onclick="window.location.href='/seguidos/{{user}}';">Usuários que sigo</button>
+	<button onclick="window.location.href='/deletar';">Deletar Minha Conta</button>
+
+	<form id ="form" method="post" action="{{ url_for('postarMensagem') }}">
+		<textarea name="mensagem" type="text" rows="4" cols="40" maxlength="140"></textarea> <br>
+		<button type="submit">Postar Mensagem</button>
+	</form>
+
+	{% block content %}
+
+	<h3>Minhas Postagens: </h3>
+	<table>
+		{% for k in post %}
+		<tr>
+			<td>
+				<strong> Post: </strong> {{ k }}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	{% endblock %}
+
+</body>
+</html>
